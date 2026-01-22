@@ -40,7 +40,7 @@ for d_ind=1:size(ds,2)
     % Build FTD model
     % Get kernel matrices for training and inference
     K_tr_tr = kernel_gaussian(xs_tr,xs_tr,d); 
-    K_te_tr = kernel_gaussian(xs_te,xs_tr,d); 
+    K_te_tr = kernel_gaussian(xs,xs_tr,d); 
     
     % Compute FTD
     [Us_ftd_class,S_ftd_class,W_ftd_class,~] = f_hooi_gradient_exp_clean(X_tr,K_tr_tr,[9 3 21],LAMBDA,MAXITERS,TAU);
@@ -137,7 +137,7 @@ d = 4;
 % Build FTD model
 % Get kernel matrices for training and inference
 K_tr_tr = kernel_gaussian(xs_tr,xs_tr,d); 
-K_te_tr = kernel_gaussian(xs_te,xs_tr,d); 
+K_te_tr = kernel_gaussian(xs,xs_tr,d); 
 
 % Compute FTD
 [Us_ftd_class,S_ftd_class,W_ftd_class,errs]  = f_hooi_gradient_exp_clean(X_tr,K_tr_tr,[9 3 21],LAMBDA,MAXITERS,TAU);
